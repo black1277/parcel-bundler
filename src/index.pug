@@ -1,0 +1,14 @@
+extends ./layout/default.pug
+
+block variables
+    - var title = 'Главная'
+    - var head1 = 'Добро пожаловать на мой сайт! Hello!!!'
+    - var content = 'Основной контент'
+
+
+block append content
+    div.example1
+        input.example1__toogle(type="checkbox" id="layers")
+        label.example1__toogle-label(for="layers" data-unchecked="Add Styles" data-checked="Remove Styles")
+        input.example1__custom-checkbox(type="checkbox" id="cust")
+        label.example1__custom-label(for="cust") Checkbox

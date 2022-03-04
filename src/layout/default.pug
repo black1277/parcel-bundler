@@ -1,0 +1,27 @@
+block variables
+    - var title = 'Персональный сайт'
+    - var head1 = 'Добро пожаловать на мой сайт! Hello!!!'
+    - var content = 'Это контент страницы по умолчанию'
+
+doctype html
+html(lang="ru")
+    head
+        meta(charset="utf-8")
+        meta(name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+        meta(http-equiv="X-UA-Compatible" content="ie=edge")
+        title #{title}
+        link(rel="stylesheet" href="css/styles.scss")
+        block scripts
+            script(src='script/index.ts')
+    body
+        header
+            block header
+                include ../parts/header.pug
+                include ../parts/navigate.pug
+        main
+            block content
+                h1 #{head1}
+                div.content
+                    p #{content}
+        block footer
+            include ../parts/footer.pug

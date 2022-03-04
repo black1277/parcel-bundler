@@ -1,0 +1,128 @@
+@import "fonts";
+@import "variables";
+@import "mixins";
+@import "menu";
+
+:root {
+  --white: #ffffff;
+  --mistyRose: #FFE8E8;
+  --rouge: #FF2A2B;
+  --azureishWhite: #DFF7ED;
+  --caribbeanGreen: #0FCA80;
+}
+
+html {
+  font-family: arial, serif;
+  background-color: #dddddd;
+}
+
+body {
+  height: 100vh;
+  padding: 10px;
+}
+
+.example1 {
+  position: relative;
+  background: #97ffae;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 15px;
+}
+
+.example1__custom-checkbox {
+  width: 5rem;
+  height: 5rem;
+  transition: 0.3s;
+}
+
+.example1__toogle:checked ~ .example1__custom-checkbox {
+  all: unset;
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  width: 10rem;
+  height: 5rem;
+  padding: 0.5rem;
+  border-radius: 2.5rem;
+  background-color: var(--mistyRose);
+  transition: 0.2s;
+
+  &::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    transition: 0.2s;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border: solid 1rem var(--white);
+    background-color: var(--rouge);
+  }
+
+  &:checked {
+    background-color: var(--azureishWhite);
+
+    &::before {
+      background-color: var(--caribbeanGreen);
+      transform: translateX(4.5rem);
+    }
+  }
+
+  &:hover,
+  &:focus {
+    &:not(:disabled) {
+      outline: none;
+      box-shadow: 0 0 1px #fff, 0 0 3px #fff, 0 0 6px #0ba9ca;
+      cursor: pointer;
+    }
+  }
+}
+
+.example1__toogle {
+  position: absolute;
+  top: 20px;
+  left: 15px;
+  z-index: 11;
+  display: block;
+  padding: 5px;
+  border: solid 1px rgb(136 136 136 / 0.7);
+  border-radius: 4px;
+  background-color: rgb(255 221 64 / 0.8);
+  margin-right: 5px;
+
+  &:checked ~ .example1__toogle-label::before {
+    content: attr(data-checked);
+  }
+
+  &:not(:checked) ~ .example1__toogle-label::before {
+    content: attr(data-unchecked);
+  }
+}
+
+.example1__toogle-label {
+  position: absolute;
+  z-index: 10;
+  left: 10px;
+  top: 10px;
+  display: block;
+  padding: 10px 10px 10px 30px;
+  border-radius: 4px;
+  background-color: rgb(255 221 64 / 0.8);
+  font-size: 2.5rem;
+}
+.master-header {
+/*  background-image: linear-gradient(#ffaf37, #653821);*/
+  background-image: url("../assets/img/zakat.jpg");
+  background-position: 0 50%;
+  background-size: 100% 100%;
+  border-radius: 10px;
+  min-height: 150px;
+}
+h1 {
+  text-align: center;
+  color: #FF2A2B;
+  font-family: 'Curlz MT', serif; /*Only english symbols*/
+}

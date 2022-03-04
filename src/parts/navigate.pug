@@ -1,0 +1,5 @@
+nav.menu
+    ul.menu__list
+        each value, key in {'index.pug': 'Главная', 'about.pug': 'О нас', 'contact.pug': 'Контакты'}
+            li.menu__item
+                a(href=key)= value
